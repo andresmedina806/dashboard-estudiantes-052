@@ -1,0 +1,16 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environments
+.venv/
+env/
+venv/
+ENV/
+
+# Streamlit
+.streamlit/
+
+# Input Excel (If you don't want to track it, but for this app it's needed)
+# Plantilla_Estudiantes_Grupo_052_DashBoard.xlsx
