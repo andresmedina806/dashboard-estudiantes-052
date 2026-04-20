@@ -32,6 +32,28 @@ if filtro_cabello:
 if filtro_barrio:
     df_filtrado = df_filtrado[df_filtrado["Barrio_Residencia"].isin(filtro_barrio)]
 
+
+# -------------------------------
+# Filtro Integrantes de nuestro grupo
+# -------------------------------
+
+nombres_limpios = df_filtrado["Nombre_Estudiante"].astype(str).str.strip()
+apellidos_limpios = df_filtrado["Apellido_Estudiante"].astype(str).str.strip()
+df_filtrado["Nombre_Completo"] = nombres_limpios + " " + apellidos_limpios
+
+nombres_grupo = [
+        "ANDRES ELIAS MEDINA GAVIRIA", 
+        "ISABELA RESTREPO MARIN", 
+        "THOMAS DAVID BUENAÑOS ANGEL", 
+        "CATALINA CORREA CARDONA"
+    ] 
+    
+filtro_integrantes = st.multiselect("Integrantes del grupo a exponer", nombres_grupo, key="filtro_grupo_final")
+
+if filtro_integrantes:
+        df_filtrado = df_filtrado[df_filtrado["Nombre_Completo"].isin(filtro_integrantes)]
+
+
 # -------------------------------
 # PUNTO 5: Sliders
 # -------------------------------
